@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  weby:
+  webs:
     build:
       context: ./
       dockerfile: ./docker/web/Dockerfile
@@ -19,7 +19,7 @@ services:
       - ./docker/web/msmtprc:/etc/msmtprc
       - ./logs:/var/log/apache2
     env_file: .env
-  dby:
+  dbs:
 #    image: mysql:5.7
 #    image: mariadb:5.5-trusty
     image: mariadb/server:10.4
