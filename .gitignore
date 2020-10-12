@@ -1,5 +1,13 @@
 /logs/
 
+.idea/
+.vscode/
+/src/coverage/
+/src/vendor/
+/src/logs/*
+!/logs/README.md
+/src/.phpunit.result.cache
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 *.log
