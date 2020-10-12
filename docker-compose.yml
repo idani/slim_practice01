@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+  weby:
+    build:
+      context: ./
+      dockerfile: ./docker/web/Dockerfile
+    # image: php:7.1-apache
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8000:8000" # Roadrunner PHP application server (optional)
+    # depends_on:
+    #   - php
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/web/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/web/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+      - ./docker/web/msmtprc:/etc/msmtprc
+      - ./logs:/var/log/apache2
+    env_file: .env
+  dby:
+#    image: mysql:5.7
+#    image: mariadb:5.5-trusty
+    image: mariadb/server:10.4
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=512 --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
+    volumes:
+#      - ${DOCKER_MYSQL_DATA_DIR}:/var/lib/mysql
+      - mysql-data-yunicast:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/cyfons.cnf
+      - ./logs:/var/log/mysql2
+    env_file: .env
+  mailhog:
+    image: mailhog/mailhog
+    environment:
+      MH_MAILDIR_PATH: /tmp
+      MH_STORAGE: maildir
+      MH_AUTH_FILE: /home/mailhog/auth
+      # 25ポートにすると落ちるのでAlpine Linuxの関係で何かありそう
+    #      MH_SMTP_BIND_ADDR: 0.0.0.0:25
+    ports:
+      - 8025:8025
+    volumes:
+      - ./logs/maildir:/tmp
+      - ./docker/mailhog_auth.txt:/home/mailhog/auth
+
+  #  maildev:
+  #    image: kanemu/maildev-with-iconv
+  #    ports:
+  #      - 8025:80
+  ##    command: bin/maildev -w 80 -s 25 --incoming-user ${SMTP_USER} --incoming-pass ${SMTP_PASSWORD} --hide-extensions STARTTLS
+  #    command: bin/maildev -w 80 -s 25 --hide-extensions STARTTLS
+
+  # webdriver:
+  #   image: selenium/standalone-chrome
+  #   volumes:
+  #     - /dev/shm:/dev/shm
+
+volumes:
+    mysql-data-yunicast:
+
+networks:
+  default:
+    driver: bridge
