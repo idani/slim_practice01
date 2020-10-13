@@ -7,7 +7,7 @@
 /src/logs/*
 !/logs/README.md
 /src/.phpunit.result.cache
-/src/firstslim/vendor/
+/src/*/vendor/
 
 
 # Created by .ignore support plugin (hsz.mobi)
