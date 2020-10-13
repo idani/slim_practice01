@@ -19,3 +19,13 @@ $app->any('/newNote[/{name}]', function (ServerRequestInterface $request, Respon
    $note = $this->call('note', [$name]);
    return $response;
 });
+
+$app->any('/writeToLog', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
+   $logger = $this->get('logger');
+   $logger->info('ログに書き出しました。');
+   $content = 'ログ書き出し';
+   $responseBody = $response->getBody();
+   $responseBody->write($content);
+
+   return $response;
+});

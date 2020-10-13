@@ -1,3 +1,7 @@
+GET http://localhost/slimcontainer/public/writeToLog
+Accept: application/json
+
+###
 GET http://localhost/slimcontainer/public/newNote
 Accept: application/json
 
