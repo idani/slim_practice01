@@ -1,3 +1,11 @@
+GET http://localhost/slimmiddle/public/doRecordIPAddressToLog
+Accept: application/json
+
+###
+GET http://localhost/slimmiddle/public/beforeAndAfter
+Accept: application/json
+
+###
 GET http://localhost/slimmiddle/public/doRecordIPAddress
 Accept: application/json
 
