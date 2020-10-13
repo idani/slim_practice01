@@ -1,0 +1,4 @@
+GET http://localhost/slimmiddle/public/doRecordIPAddress
+Accept: application/json
+
+###

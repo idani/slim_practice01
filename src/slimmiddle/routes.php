@@ -1,7 +1,9 @@
 <?php
 
-use SocymSlim\SlimController\controllers\ConstructorController;
-use SocymSlim\SlimController\controllers\ServerHelloController;
+use SocymSlim\SlimMiddle\controllers\SlimMiddleController;
+use SocymSlim\SlimMiddle\middlewares\RecordIPAddress;
+use SocymSlim\SlimMiddle\middlewares\RecordIPAddressBefore;
 
 $app->setBasePath('/slimmiddle/public');
 
+$app->any('/doRecordIPAddress', SlimMiddleController::class.':middlewareTest')->add(new RecordIPAddress());
