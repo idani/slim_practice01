@@ -1,0 +1,4 @@
+GET http://localhost/slimcontroller/public/several/showFirst
+Accept: application/json
+
+###
