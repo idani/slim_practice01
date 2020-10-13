@@ -1,3 +1,11 @@
+GET http://localhost/slimroute/public/redirectOrNot/0
+Accept: application/json
+
+###
+GET http://localhost/slimroute/public/redirectOrNot/1
+Accept: application/json
+
+###
 GET http://localhost/slimroute/public/showList/drink/low
 Accept: application/json
 

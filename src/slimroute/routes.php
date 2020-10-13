@@ -72,3 +72,17 @@ $app->get('/showList/{categoryId}/{tagId}[/{listSize}]', function (ServerRequest
 $app->redirect('/google', 'https://www.google.com/');
 
 $app->redirect('/hey', '/slimroute/public/helloAny', 301);
+
+$app->any('/redirectOrNot/{flg}', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
+   $flg = $args['flg'];
+   if ($flg == 0) {
+       $response = $response->withHeader('Location', 'https://www.google.com/');
+       $response = $response->withStatus(302);
+   } else {
+       $content = 'リダイレクトしない';
+       $responseBody = $response->getBody();
+       $responseBody->write($content);
+   }
+
+   return $response;
+});
