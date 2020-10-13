@@ -70,3 +70,5 @@ $app->get('/showList/{categoryId}/{tagId}[/{listSize}]', function (ServerRequest
 });
 
 $app->redirect('/google', 'https://www.google.com/');
+
+$app->redirect('/hey', '/slimroute/public/helloAny', 301);
