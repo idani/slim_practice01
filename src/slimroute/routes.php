@@ -50,3 +50,11 @@ $app->map(['POST', 'GET'], '/helloMap', function (ServerRequestInterface $reques
     $responseBody->write($content);
     return $response;
 });
+
+$app->get('/showDetail/{id}', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
+   $id = $args['id'];
+   $content = 'idが'. $id.'の詳細です！';
+   $responseBody = $response->getBody();
+   $responseBody->write($content);
+   return  $response;
+});

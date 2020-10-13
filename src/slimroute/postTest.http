@@ -1,3 +1,7 @@
+GET http://localhost/slimroute/public/showDetail/abc
+Accept: application/json
+
+###
 POST http://localhost/slimroute/public/helloMap
 Content-Type: application/json
 
