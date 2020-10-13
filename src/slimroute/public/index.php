@@ -32,4 +32,26 @@ $app->get('/slimroute/public/showParams', function (ServerRequestInterface $requ
     return $response;
 });
 
+$app->get('/slimroute/public/writeBody', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface {
+    $content = 'レスポンスボディに文字列を格納';
+    $responseBody = $response->getBody();
+    $responseBody->write($content);
+    return $response;
+});
+
+$app->any('/slimroute/public/helloAny', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface {
+   $method = $request->getMethod();
+   $content = $method . 'メソッドでHello World!';
+   $responseBody = $response->getBody();
+   $responseBody->write($content);
+   return $response;
+});
+
+$app->map(['POST', 'GET'], '/slimroute/public/helloMap', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
+   $content = 'POSTまたはGETメソッドでHello World！';
+   $responseBody = $response->getBody();
+   $responseBody->write($content);
+   return $response;
+});
+
 $app->run();
