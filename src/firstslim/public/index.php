@@ -11,3 +11,5 @@ $app->get('/firstslim/public/hello', function (ServerRequestInterface $request, 
     print('Hello World!');
     return $response;
 });
+
+$app->run();
