@@ -68,3 +68,5 @@ $app->get('/showList/{categoryId}/{tagId}[/{listSize}]', function (ServerRequest
     $responseBody->write($content);
     return  $response;
 });
+
+$app->redirect('/google', 'https://www.google.com/');
