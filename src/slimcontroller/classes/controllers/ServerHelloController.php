@@ -16,4 +16,13 @@ class ServerHelloController
 
         return $response;
     }
+
+    public function showSecond(ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface
+    {
+        $content = 'コントローラクラスのshowSecondメソッドでHello World!!';
+        $responseBody = $response->getBody();
+        $responseBody->write($content);
+
+        return $response;
+    }
 }
