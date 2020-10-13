@@ -1,7 +1,12 @@
+GET http://localhost/slimroute/public/showParams?name=井谷&age=832
+Accept: application/json
+
+###
 POST http://localhost/slimroute/public/showParams
 Content-Type: application/x-www-form-urlencoded
 
 name=井谷&age=19
 
 ###
+
 
