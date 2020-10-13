@@ -13,3 +13,9 @@ $app->any('/helloWithContainer', function (ServerRequestInterface $request, Resp
 
    return $response;
 });
+
+$app->any('/newNote[/{name}]', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface {
+   $name = isset($args['name'])? $args['name'] . 'さん' : '井谷さん';
+   $note = $this->call('note', [$name]);
+   return $response;
+});

@@ -1,0 +1,4 @@
+GET http://localhost/slimcontainer/public/newNote
+Accept: application/json
+
+###
