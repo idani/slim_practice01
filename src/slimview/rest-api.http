@@ -1,0 +1,4 @@
+GET http://localhost/slimview/public/getDataByJson/102
+Accept: application/json
+
+###
