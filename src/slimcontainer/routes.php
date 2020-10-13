@@ -7,7 +7,7 @@ use Slim\Views\Twig;
 $app->setBasePath('/slimcontainer/public');
 
 $app->any('/helloWithContainer', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
-   $assign['name'] = 'コンテナ';
+   $assign['name'] = 'コンテナ！！';
    $twig = $this->get('view');
    $response = $twig->render($response, 'helloWithVals.html', $assign);
 
