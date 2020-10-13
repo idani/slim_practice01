@@ -1,3 +1,11 @@
+GET http://localhost/slimroute/public/showList/drink/low
+Accept: application/json
+
+###
+GET http://localhost/slimroute/public/showList/drink/low/50
+Accept: application/json
+
+###
 GET http://localhost/slimroute/public/showDetail/abc
 Accept: application/json
 

@@ -58,3 +58,13 @@ $app->get('/showDetail/{id}', function (ServerRequestInterface $request, Respons
    $responseBody->write($content);
    return  $response;
 });
+
+$app->get('/showList/{categoryId}/{tagId}[/{listSize}]', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
+    $categoryId = $args['categoryId'];
+    $tagId = $args['tagId'];
+    $listSize = isset($args['listSize'])? $args['listSize']: '<未設定>';
+    $content = sprintf("カテゴリID:%s\nタグID:%s\nリストサイズ:%s", $categoryId, $tagId, $listSize);
+    $responseBody = $response->getBody();
+    $responseBody->write($content);
+    return  $response;
+});
