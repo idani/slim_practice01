@@ -19,3 +19,9 @@ $app->any('/getDataByJson/{id}', function (ServerRequestInterface $request, Resp
 
     return $response;
 });
+
+$app->any('/helloTwig', function (ServerRequestInterface $request, ResponseInterface $response, array $args):ResponseInterface{
+   $twig = \Slim\Views\Twig::create($_SERVER['DOCUMENT_ROOT'] . '/slimview/templates');
+   $response = $twig->render($response, 'hello.html');
+   return $response;
+});

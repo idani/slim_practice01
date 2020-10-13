@@ -1,3 +1,7 @@
+GET http://localhost/slimview/public/helloTwig
+Accept: application/json
+
+###
 GET http://localhost/slimview/public/getDataByJson/102
 Accept: application/json
 
