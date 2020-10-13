@@ -1,0 +1,7 @@
+POST http://localhost/slimroute/public/showParams
+Content-Type: application/x-www-form-urlencoded
+
+name=井谷&age=19
+
+###
+
