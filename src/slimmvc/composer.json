@@ -8,7 +8,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SocymSlim\\SlimMvc\\": "classes/"
+            "SocymSlim\\MVC\\": "classes/"
         }
     }
 }
